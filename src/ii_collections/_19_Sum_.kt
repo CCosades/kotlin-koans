@@ -7,5 +7,9 @@ fun example6() {
 fun Customer.getTotalOrderPrice(): Double {
     // Return the sum of prices of all products that a customer has ordered.
     // Note: a customer may order the same product for several times.
-    todoCollectionTask()
+    return orders.sumByDouble { it.getTotalPrice() }
+}
+
+fun Order.getTotalPrice(): Double {
+    return products.sumByDouble { it.price }
 }
